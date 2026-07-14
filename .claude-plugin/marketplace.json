@@ -1,0 +1,19 @@
+{
+  "name": "dreem",
+  "owner": {
+    "name": "Dreem",
+    "email": "kristian@dreem.ai"
+  },
+  "description": "Dreem Content Studio for Claude - audit ecommerce product imagery, then generate Product Shots, virtual model shots, and product video from a single image.",
+  "plugins": [
+    {
+      "name": "dreem-content",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/dreem-ai/dreem-for-claude.git"
+      },
+      "description": "Turn Claude + Dreem into a content studio for ecommerce fashion. 10 skills: imagery audit, Product Shots, virtual model shots, image-to-video, content kits, product launches, channel formats, seasonal restyle, and inclusive sets. Cost preview + explicit approval before any credit is spent.",
+      "version": "0.8.1"
+    }
+  ]
+}
