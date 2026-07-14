@@ -1,6 +1,6 @@
 ---
 name: dreem-virtual-model-shots
-description: Put any garment on any of Dreem's 400+ virtual talents - flat lay or mannequin photo in, on-model imagery out, cast across body types, ages, sizes, and ethnicities. Use whenever the user wants on-model or model shots, wants to show a product on a person, wants the model STYLED a certain way (pair it with a black jacket and white shoes, style it for winter, complete the look), wants to swap or replace the model on an existing photo, or has products that were never shot on a person. Also the fix for every "no on-model" finding from dreem-imagery-audit. For extending an EXISTING approved on-model look across body types, sizes, ages, or genders, use dreem-inclusive-set - this skill creates the first look. Requires the Dreem connector; every generation is cost-previewed and approved first.
+description: Put any garment on any of Dreem's 400+ virtual talents - flat lay or mannequin photo in, on-model imagery out, cast across body types, ages, sizes, and ethnicities. Use whenever the user wants on-model or model shots, wants to show a product on a person, wants the model STYLED a certain way (pair it with a black jacket and white shoes, style it for winter, complete the look), wants to swap or replace the model on an existing photo, or has products that were never shot on a person. Also the fix for every "no on-model" finding from dreem-imagery-audit. For extending an EXISTING approved on-model look across body types, sizes, ages, or genders, use dreem-extend-talents-set - this skill creates the first look. Requires the Dreem connector; every generation is cost-previewed and approved first.
 metadata:
   version: 0.3.0
   pack: dreem-content
@@ -53,7 +53,7 @@ The mechanics behind each answer:
 
 Whichever path, close per **Casting and pose: suggest, explain, confirm** in `_shared-dreem-mcp-guide.md`: name the best-fit talent with a one-line reason, ask the user to confirm it, and offer 2-3 named alternatives if they decline. The picker is the override path; if picker state and the user's words disagree, the words win.
 
-- **Diversity/size/age sets:** lock ONE garment and iterate `talentId` across the chosen talents (e.g. 5 talents across the size range, or 20s/30s/40s/60s). One picker session, N casting choices, one batch. When the starting point is the product's EXISTING on-model shot and the brief is "same look, different people" (bodies, ages, or genders), hand off to dreem-inclusive-set - it carries the source styling, shot style, and format automatically.
+- **Diversity/size/age sets:** lock ONE garment and iterate `talentId` across the chosen talents (e.g. 5 talents across the size range, or 20s/30s/40s/60s). One picker session, N casting choices, one batch. When the starting point is the product's EXISTING on-model shot and the brief is "same look, different people" (bodies, ages, or genders), hand off to dreem-extend-talents-set - it carries the source styling, shot style, and format automatically.
 - Talent gender must match the pose set you pick in Step 3 - poses are gendered, and a mismatch fails or looks wrong.
 
 ## Step 3 - Pick shots (pose + camera)

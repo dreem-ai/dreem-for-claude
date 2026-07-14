@@ -1,8 +1,8 @@
 ---
-name: dreem-inclusive-set
+name: dreem-extend-talents-set
 description: Extend a product's current on-model shot across an inclusivity axis - body types and sizes, ages, or genders - same garment, same styling, same shot family and format, different people. Shoppers see the piece on someone like them before buying. Use whenever the user wants size-inclusive or body-diverse imagery ("show it on every size", "on a plus-size model", "different body types"), an age-diverse set ("same look, 20s through 60s", "show it on older models too", "made for every age"), a gender set ("show it on men and women", "unisex", "each gender", "his and hers"), or "models that look like our customers". Works from the current PDP on-model image, an upload, or a shot another pack skill generated. If the product has no on-model image yet, dreem-virtual-model-shots creates the first look - this skill multiplies it across people. Requires the Dreem connector.
 metadata:
-  version: 0.2.2
+  version: 0.3.0
   pack: dreem-content
   skill_type: generation
 ---

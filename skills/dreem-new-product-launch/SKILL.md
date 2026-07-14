@@ -65,4 +65,4 @@ One manifest for the drop; summary organized as a launch checklist per channel -
 
 Then the chain, one line each:
 - Extra announcement formats (email hero, Pinterest) from the best completed shot -> `dreem-channel-pack`.
-- Once the launch settles, extend the hero product across bodies, ages, or genders -> `dreem-inclusive-set`.
+- Once the launch settles, extend the hero product across bodies, ages, or genders -> `dreem-extend-talents-set`.

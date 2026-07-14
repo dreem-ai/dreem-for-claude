@@ -1,4 +1,4 @@
-# dreem-inclusive-set
+# dreem-extend-talents-set
 
 Your current on-model shot, extended across body types and sizes, ages, or genders. Same garment, same styling, same shot family - different people.
 

@@ -15,9 +15,9 @@ Skills that turn Claude + the [Dreem MCP](https://dreem.ai) into a working conte
 | `dreem-new-product-launch` | Launch imagery planned backwards from the live date - one product or a whole drop, one approval. | Yes, after approval |
 | `dreem-channel-pack` | One finished shot recomposed for every channel: PDP, marketplace, Stories, feed, email, Pinterest. | Yes, after approval |
 | `dreem-seasonal-restyle` | Retheme existing on-model imagery for a season or campaign - same garments, new look, one batch. | Yes, after approval |
-| `dreem-inclusive-set` | Extend the current on-model shot across body types and sizes, ages, or genders - same styling, different people. | Yes, after approval |
+| `dreem-extend-talents-set` | Extend the current on-model shot across body types and sizes, ages, or genders - same styling, different people. | Yes, after approval |
 
-The four starting-point skills chain: the audit routes gaps to the right fix, a launch or restyle hands its winner to `dreem-channel-pack`, and any approved on-model look extends through `dreem-inclusive-set`.
+The four starting-point skills chain: the audit routes gaps to the right fix, a launch or restyle hands its winner to `dreem-channel-pack`, and any approved on-model look extends through `dreem-extend-talents-set`.
 
 Safety contract across the pack: **no generation before you see a plan and a cost preview and approve it.** The audit skill never generates at all.
 

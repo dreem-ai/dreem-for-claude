@@ -221,4 +221,4 @@ Do not pick one offer for them. Point back at the three opportunity tables and a
 
 If the Dreem connector is not attached yet, say that generating needs it and where to add it. Whatever they pick, hand off to the matching skill with a cost preview before anything generates.
 
-Also watch for a bigger-picture moment the audit surfaced, and mention it alongside the ask rather than instead of it: brand-new products with a live date -> dreem-new-product-launch; a catalog still styled for last season -> dreem-seasonal-restyle; solid PDPs that only show one body type, age, or gender -> dreem-inclusive-set; one strong shot that exists in a single format -> dreem-channel-pack.
+Also watch for a bigger-picture moment the audit surfaced, and mention it alongside the ask rather than instead of it: brand-new products with a live date -> dreem-new-product-launch; a catalog still styled for last season -> dreem-seasonal-restyle; solid PDPs that only show one body type, age, or gender -> dreem-extend-talents-set; one strong shot that exists in a single format -> dreem-channel-pack.
