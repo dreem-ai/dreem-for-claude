@@ -2,6 +2,26 @@
 
 Skills that turn Claude + the [Dreem MCP](https://dreem.ai) into a working content studio for ecommerce fashion brands. One product image in, full content out - audited, planned, cost-previewed, and generated.
 
+## What Dreem is
+
+[Dreem](https://dreem.ai) is an AI product photography and AI fashion photography platform for ecommerce brands - built for teams who need studio-quality product photos, on-model shots, and short product video without booking a shoot. This plugin puts that toolkit directly inside Claude: describe what you need, approve the cost, and Dreem generates it.
+
+**What it does:**
+- **AI product photography** - clean, marketplace-ready product photos generated from a single image you already have, in any aspect ratio, up to 4K.
+- **AI clothing model generator** - put any garment on one of 400+ real virtual talents for genuine AI model photography, cast across body types, ages, and genders so shoppers see it on someone who looks like them.
+- **AI product video generator** - turn a still into a short product video for a PDP or social, no reshoot.
+- **Store imagery audit** - point it at a live Shopify store and it finds the real gaps (missing on-model shots, thin PDPs, no video) before spending a single credit.
+
+**Who it's for:** ecommerce and DTC fashion brands, Shopify stores, and agencies managing product catalogs who want AI photoshoot output without a generic "type a prompt, hope for the best" workflow.
+
+**Why teams pick Dreem:**
+- Every generation shows an exact cost and waits for explicit approval first - no surprise spend.
+- It works from your real product photos, not just a text prompt, so the garment on screen is the actual garment, not a lookalike.
+- A real virtual talent library (400+, not one generic AI face) means genuinely diverse, repeatable casting.
+- It audits your actual store before recommending anything, so the plan is built around real gaps, not a guess.
+
+Built by the team behind [Dreem](https://dreem.ai) and [Creative Force](https://creativeforce.io).
+
 ## The pack (10 skills)
 
 | Skill | What it does | Spends credits? |
