@@ -9,7 +9,7 @@ metadata:
 
 # Dreem Seasonal Restyle
 
-Sep 1 and Mar 1 are the two days every fashion catalog ages overnight. This skill rethemes existing on-model imagery in one batch: the garments stay exactly the user's garments, the store's format stays the store's format, and one locked seasonal look carries across every product - so the result reads as a campaign, not a pile of unrelated renders.
+This skill rethemes existing on-model imagery in one batch: the garments stay exactly the user's garments, the store's format stays the store's format, and one locked seasonal look carries across every product - so the result reads as a campaign, not a pile of unrelated renders.
 
 ## Before you start
 
@@ -50,6 +50,7 @@ Max 3 concurrent, results shown once each. QA per `_shared-output-conventions.md
 ## Step 6 - Ship the season
 
 Manifest + summary. The restyled set replaces PDP imagery (manual upload today, or Dreem's n8n templates for automated delivery). Then the chain:
-- Campaign formats for the season's announcement (email hero, Stories) from the strongest restyled shot -> `dreem-channel-pack`.
-- Motion on the campaign hero -> `dreem-image-to-video`.
-- New products joining the seasonal drop -> `dreem-new-product-launch`.
+
+- Campaign formats for the season's announcement (email hero, Stories) from the strongest restyled shot -&gt; `dreem-channel-pack`.
+- Motion on the campaign hero -&gt; `dreem-image-to-video`.
+- New products joining the seasonal drop -&gt; `dreem-new-product-launch`.

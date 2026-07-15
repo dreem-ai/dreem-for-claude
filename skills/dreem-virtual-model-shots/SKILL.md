@@ -9,7 +9,7 @@ metadata:
 
 # Dreem Virtual Model Shots
 
-Dreem's strongest capability: dress a virtual talent in the user's actual garment. A flat lay becomes a person wearing the product; one garment becomes a size-inclusive set; a model you no longer have rights to becomes a model you do.
+Dress a virtual talent in the user's actual garment. A flat lay becomes a person wearing the product; one garment becomes a size-inclusive set.
 
 ## Before you start
 
@@ -31,12 +31,14 @@ Run Step 0 from `_shared-input-analysis.md` on every input: view, content type, 
 
 **Ask how the model should be styled - always, before the plan.** Unless the user already gave styling direction, one question with examples:
 
-> How should the model be styled around the [garment]? For example:
+> How should the model be styled around the \[garment\]? For example:
+>
 > - pair it with specific pieces - "a black jacket and white sneakers"
 > - style it for a season - "winter look: coat, beanie, boots"
-> - keep it minimal - simple neutrals, the [garment] is the hero
+> - keep it minimal - simple neutrals, the \[garment\] is the hero
 
 The mechanics behind each answer:
+
 - **Specific pieces**: each piece needs an image - pass it as `images[]` with `productType: Outfit` (photo upload, URL, or best of all a product from the user's OWN store catalog; the CDN URLs from an audit work directly). The model then wears THEIR products - complete-the-look imagery that cross-sells.
 - **Season/mood without piece photos**: be honest - outfit control comes from Outfit images. Offer to pull matching pieces from their store ("you have a beanie and boots in your catalog - want those on the model?") or let Dreem improvise simple neutrals.
 - **Minimal / no answer**: no Outfit images; Dreem dresses the talent in plain neutrals so the main garment stays the hero.
@@ -58,7 +60,7 @@ Whichever path, close per **Casting and pose: suggest, explain, confirm** in `_s
 
 ## Step 3 - Pick shots (pose + camera)
 
-`browse_product_shot_styles` for the shot styles: pose, camera, framing, mood. Check each shot's `pose.gender` against the chosen talent. Apply the same suggest -> explain -> confirm pattern to the pose (`_shared-dreem-mcp-guide.md`): propose the best-fit pose(s) with a one-line reason, ask before locking, and offer named alternatives if the user declines. PDP sets read best with 2-3 shots: one straight-on full body, one three-quarter, one detail-adjacent. Filter picks against the Step 1 input analysis - back-facing poses only with a back input (or explicit acknowledgment).
+`browse_product_shot_styles` for the shot styles: pose, camera, framing, mood. Check each shot's `pose.gender` against the chosen talent. Apply the same suggest -&gt; explain -&gt; confirm pattern to the pose (`_shared-dreem-mcp-guide.md`): propose the best-fit pose(s) with a one-line reason, ask before locking, and offer named alternatives if the user declines. PDP sets read best with 2-3 shots: one straight-on full body, one three-quarter, one detail-adjacent. Filter picks against the Step 1 input analysis - back-facing poses only with a back input (or explicit acknowledgment).
 
 ## Step 4 - Ratios and tiers
 

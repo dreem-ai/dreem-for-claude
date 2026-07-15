@@ -25,11 +25,13 @@ Deprecated aliases still work if a host exposes them: `search_talents`=browse_mo
 
 **Host prefixes vary.** On claude.ai the tools may appear as `Dreem:generate_product_shot`, in other hosts as `mcp__dreem__generate_product_shot`. Match tools by their base name, never by a hardcoded prefix.
 
-**First-run connection check (before any planning).** At the start of every generation flow, verify Dreem tools are reachable by base name. If none are available, stop and walk the user through connecting BEFORE opening pickers or drawing a plan. The connect steps, by host:
+**Connection check (before any planning, every flow).** At the start of every generation flow, silently check whether Dreem tools are reachable by base name - look, don't ask. Never open with "do you have Dreem connected?" or a connect walkthrough before checking.
 
-- **Claude Desktop / Cowork (plugin installed):** the plugin auto-registers the Dreem MCP (`https://mcp.dreem.ai/mcp`); the user approves the **Connect to Dreem** prompt and logs into their Dreem account (OAuth - no API key to paste).
-- **claude.ai:** Settings → Connectors → Dreem → Connect.
-- **Claude Code (CLI):** `/mcp` to trigger login, then approve OAuth.
+- **Reachable:** the user is already connected. Say nothing about connecting and go straight into the flow.
+- **Not reachable:** stop and walk the user through connecting BEFORE opening pickers or drawing a plan. The connect steps, by host:
+  - **Claude Desktop / Cowork (plugin installed):** the plugin auto-registers the Dreem MCP (`https://mcp.dreem.ai/mcp`); the user approves the **Connect to Dreem** prompt and logs into their Dreem account (OAuth - no API key to paste).
+  - **claude.ai:** Settings → Connectors → Dreem → Connect.
+  - **Claude Code (CLI):** `/mcp` to trigger login, then approve OAuth.
 
 If a host does not auto-register Dreem, add it by hand with the endpoint `https://mcp.dreem.ai/mcp` (claude.ai / Desktop: Settings → Connectors → Add custom connector; CLI: `claude mcp add --transport http dreem https://mcp.dreem.ai/mcp`), then approve the OAuth login.
 
@@ -53,18 +55,20 @@ Flow order matters (RULE-A):
 3. ONE confirm for the whole batch. Then generate sequentially, polling each request.
 4. Never fire more than 3 concurrent generations. Collect results into the manifest as they complete.
 
-## Casting and pose: suggest, explain, confirm
+## Casting, pose, and motion: suggest, explain, confirm
 
-For talent (`browse_models`) and pose (`browse_product_shot_styles`), never silently pre-select and move on - the user gets a say before any credits are planned.
+For talent (`browse_models`), pose (`browse_product_shot_styles`), and motion (`browse_video_styles`), never silently pre-select and move on - the user gets a say before any credits are planned.
 
-**Talent gets one upfront question when the brief doesn't already describe the model:** should Dreem suggest one based on their product page/store, or do they want to pick - either by selecting from the picker's examples, or by describing the look ("woman in her 40s, warm approachable") for Dreem to find. Skip the question when the user already described or named the model - their words ARE the answer. Then, for EACH of the two:
+**Talent gets one upfront question when the brief doesn't already describe the model:** should Dreem suggest one based on their product page/store, or do they want to pick - either by selecting from the picker's examples, or by describing the look ("woman in her 40s, warm approachable") for Dreem to find. Skip the question when the user already described or named the model - their words ARE the answer. Then, for EACH of the three:
 
 1. **Pick** the best-fit option from the browse results. For TALENT, bias the first pick to the store's market region when it is known - a Danish/DK store (country/currency/language from the store read) casts Scandinavian talents first (`browse_models` query e.g. "Scandinavian Danish man, fair skin"). This sets the default only; alternatives still span wider, and the user can always broaden it.
-2. **Explain** it - name it with a one-line reason tied to the product and brief ("Wilder Hayes - adult man, athletic, outdoor look; fits the outdoor jacket's use case").
+2. **Explain** it - name it with a one-line reason tied to the product and brief ("Wilder Hayes - adult man, athletic, outdoor look; fits the outdoor jacket's use case"; for motion, "Weight Transfer - full-body shift reads as premium and matches your still, versus a waist-down-only crop").
 3. **Ask** the user to confirm: "Use this one, or pick another?" The visual picker stays open as the override path.
 4. **If they decline** (or want options), suggest 2-3 named alternatives from the same results, each with a one-line differentiator ("Rafferty Cole - lighter wavy hair, more editorial; Tunde Adisa - deeper skin, same athletic build"), and let them choose in chat or the gallery.
 
-Hold the cost preview until talent AND pose are each confirmed or actively chosen. A plain "go"/Confirm on your named suggestion counts as confirmation - but only if the suggestion, its reason, and the alternatives offer are already on screen first. Batch/diversity sets: do this once for the locked cast and pose set (list them), never per product.
+Hold the cost preview until talent, pose, and motion are each confirmed or actively chosen. A plain "go"/Confirm on your named suggestion counts as confirmation - but only if the suggestion, its reason, and the alternatives offer are already on screen first. Batch/diversity sets: do this once for the locked cast, pose, and motion set (list them), never per product.
+
+**A picker's pre-highlighted item is not a user choice - don't let it silently override your recommendation.** These pickers render with an item already highlighted (often just the first or most obvious result) before the user has touched anything. When you re-read a picker's live selection per RULE-C, that pre-highlight looks identical in the returned state to a real click - but it isn't one. If you already picked, explained, and are waiting on confirmation for option A, and the picker's live state shows a *different*, unclicked default B, keep going with A - a plain "go"/confirm from the user still means A, the option they were actually looking at in your explanation. Only switch to B if the user actively interacted with the picker (clicked/tapped a specific option themselves) or said so in chat ("I picked the other one," a different name back to you). When genuinely unsure whether a selection was an active click or the picker's own default, ask in one line rather than guessing - never generate against a silent, unclicked default that contradicts the plan you already put in front of the user.
 
 ## Image sourcing rules
 
@@ -97,7 +101,7 @@ Every `generate_*` returns a `requestId` in about a second. The generation itsel
 2. If it returns `in_progress`, call it again with the SAME requestId. Cap the loop: after ~10 minutes of `in_progress` on one request (~12 polls), stop, report the stall with the requestId, and offer to keep waiting or check back later - never poll forever.
 3. Done ONLY when `status='completed'` AND `outputs[]` has at least one entry with a non-empty URL. A `completed` with empty or URL-less outputs is NOT done - poll again.
 4. `failed`/`cancelled` expose `errorCode` + `message`. Report them honestly, per product, and continue the rest of a batch.
-5. RULE-B: once a request completes with a usable URL, call `show_generation_result(requestId)` exactly once. Never end a flow with result URLs only in text.
+5. RULE-B: once a request completes with a usable URL, call `show_generation_result(requestId)` exactly once, THEN also print the raw output URL as plain unformatted text labeled as the full-resolution original (see `_shared-output-conventions.md` - never wrap it in `[...]()`) so the user can open the true, undownscaled asset in a browser tab. Do both every time - never end a flow with only the inline render, and never end it with only a text URL either.
 
 ## Quality expectations (be honest)
 

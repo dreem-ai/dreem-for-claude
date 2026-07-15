@@ -2,7 +2,7 @@
 name: dreem-getting-started
 description: First-run guide for the Dreem Content Studio plugin. Use when the user has just installed the plugin, asks what it can do, how to get started, how to connect Dreem, whether they need an account, what things cost, or opens with a vague greeting right after install ("hi", "what is this", "help"). Also use when any Dreem skill is wanted but the Dreem connection is missing. Never generates anything and never spends credits - it orients, connects, and hands off to the right skill.
 metadata:
-  version: 0.3.2
+  version: 0.3.3
   pack: dreem-content
   skill_type: onboarding
 ---
@@ -15,7 +15,7 @@ The first five minutes decide whether this plugin becomes a habit or shelf-ware.
 
 Everything except the free audit needs a live Dreem connection. Get it done before anything else.
 
-**1a. Check first - do not ask, look.** Scan the session for Dreem tools by their base name (`generate_product_shot`, `browse_models`, etc. - prefixes vary by host, see `../../shared/references/_shared-dreem-mcp-guide.md`). If they are present, the user is already connected: say one line - "Connected - your Dreem account is live" - and skip straight to Step 2. Only run the guide below when the tools are missing.
+**1a. Check first - do not ask, look.** Scan the session for Dreem tools by their base name (`generate_product_shot`, `browse_models`, etc. - prefixes vary by host, see `../../shared/references/_shared-dreem-mcp-guide.md`). Never open this skill by asking "are you connected?" - check silently first, every time, even on a returning user. If the tools are present, the user is already connected: say one line - "Connected - your Dreem account is live" - and skip straight to Step 2. Only run the guide below when the tools are missing.
 
 **1b. Not connected - walk them through it.** One sentence of what it is, then the steps for their host. The connector uses OAuth into their Dreem account - **no API keys, nothing to paste.**
 
