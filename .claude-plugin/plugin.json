@@ -1,7 +1,7 @@
 {
   "name": "dreem-content",
   "displayName": "Dreem Content Studio",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Turn Claude + Dreem into a content studio for ecommerce fashion. Audit your catalog's imagery, then generate Product Shots, virtual model shots, and product video from a single image - with a cost preview before any credit is spent.",
   "author": {
     "name": "Dreem",
